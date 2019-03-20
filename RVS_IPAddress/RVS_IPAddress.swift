@@ -77,14 +77,6 @@ public protocol RVS_IPAddress {
      - returns: The address and port, as a String.
      */
     var description: String { get }
-    
-    /* ################################################################## */
-    /**
-     Initialize from a String.
-     
-     - parameter inString: The string to be parsed to create this address.
-     */
-    init(_ inString: String)
 }
 
 /* ################################################################################################################################## */
@@ -153,12 +145,12 @@ public func RVS_IPAddressExtractIPAddress(_ inString: String, isPadded inIsPadde
 /**
  This is a factory for IP addresses (as Int Arrays).
  
- - parameter inArray: The Array to be used.
+ - parameter array: The Array to be used.
  - parameter port: An optional (default is 0 -no port) Int, with the TCP port.
- - parameter isPadded: Optional IPv6 padding variable. If true (default is false), then IPv6 addresses will be fully padded. Ignored for IPv4.
+ - parameter isPadded: Optional IPv6 padding variable. If true (default is false), then IPv6 addresses will be fully 0-padded (no shortcuts). Ignored for IPv4.
  - returns: a valid IPv4 or IPv6 address object. nil, if the Array cannot produce a valid IP address.
  */
-public func RVS_IPAddressExtractIPAddress(_ inArray: [Int], port inPort: Int = 0, isPadded inIsPadded: Bool = false) -> RVS_IPAddress! {
+public func RVS_IPAddressExtractIPAddress(array inArray: [Int], port inPort: Int = 0, isPadded inIsPadded: Bool = false) -> RVS_IPAddress! {
     let iPv4 = RVS_IPAddressV4(inArray, port: inPort)
     
     if iPv4.isValidAddress {
@@ -231,15 +223,25 @@ public struct RVS_IPAddressV4: RVS_IPAddress {
     
     /* ################################################################## */
     /**
+     This init extracts an IPV4 address, and, if applicable, TCP port, from a given string.
+     
+     The rule for an IPv4 address is quite simple. It is four (4) sequential bytes (8 bits), expressed as decimal (not hexadecimal) numbers, and separated by periods (.), like so: `123.123.123.123`.
+     
+     Each segment is a positive integer, from 0-255. They can be zero-padded, but generally are not.
+     
+     If an additional TCP port is provided, that is indicated by appending a colon (:) to the end, followed immediately by a positive integer, like so: `123.123.123.123:456`.
+     
+     - parameter inString: The String to be parsed.
      */
     public init(_ inString: String) {
         addressArray = []
         port = 0
         
         let charset = CharacterSet(charactersIn: "0123456789.:").inverted
-        
-        if !inString.isEmpty, nil == inString.rangeOfCharacter(from: charset) {
-            let addrPort = inString.components(separatedBy: ":")
+        let parseTarget = inString.trimmingCharacters(in: .whitespacesAndNewlines) // We trim whitespace, because we're nice like that.
+
+        if !parseTarget.isEmpty, nil == parseTarget.rangeOfCharacter(from: charset) {
+            let addrPort = parseTarget.components(separatedBy: ":")
             let split = addrPort[0].components(separatedBy: ".")
             
             if 4 == split.count {
@@ -405,41 +407,28 @@ public struct RVS_IPAddressV6: RVS_IPAddress {
             }
         }
     }
-    
+
     /* ################################################################## */
     /**
      This init extracts an IPV6 address, and, if applicable, TCP port, from a given string.
      
-     The definition of an IPV6 address is:
+     The definition of an IPV6 address is: `XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX`
      
-     XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX
+     Where `X` is 0...F (hexadecimal). There are shortcuts (discussed below), but we assume leading zeroes, and all zeores are represented.
      
-     Where "X" is 0...F (Hexadecimal). There are shortcuts (discussed below), but we assume leading zeroes, and all zeores are represented.
+     Each segment is a positive integer, from 0 - 65535 (FFFF in hexadecimal).
      
-     If there is an additional TCP port, then that is specified thusly:
+     If there is an additional TCP port, then the IP address is bracketed, and followed immediately by a colon (:), then immediately by a positive integer, like this: `[XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX]:Y`
      
-     [XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX]:Y
-     
-     Where Y is a positive integer
+     Where `Y` is a positive integer
      
      SHORTCUTS:
      
-     You can specify a range of 0-filled elements by using "::". This is only allowed once in the entire address, like so:
-     XXXX:0000:0000:0000:XXXX:0000:0000:XXXX
+     You can specify a range of 0-filled elements by using `::` as a shortcut. This is only allowed once in the entire address, so:
      
-     can be written as:
+     `XXXX:0000:0000:0000:XXXX:0000:0000:XXXX` can be written as `XXXX::XXXX:0000:0000:XXXX` or `XXXX:0000:0000:0000:XXXX::XXXX`
      
-     XXXX::XXXX:0000:0000:XXXX
-         /\
-         ||
-     
-     or:
-     
-     XXXX:0000:0000:0000:XXXX::XXXX
-                             /\
-                             ||
-     
-     usually, the first one will be selected, as it's the longest range.
+     Usually, the first shortcut will be selected, as it's the longest range.
      
      You can have a maximum of four (4) hexadecimal characters in an element. Case of the hex digits is usually lowercased, as a convention, but uppercased is allowed. We use lowercase.
      
@@ -449,19 +438,41 @@ public struct RVS_IPAddressV6: RVS_IPAddress {
      
      You can wrap an address in brackets, even if you do not specify a port.
      
-     If you specify a port, it must appear after a colon (:), after the closing bracket (]), so you would have "]:12345", to specify TCP Port 12345.
+     If you specify a port, it must appear after a colon (:), after the closing bracket (]), so you would have `]:12345`, to specify TCP Port 12345.
      
      You can have a maximum of eight (8) elements.
      
      Illegal formats and syntax errors result in no address being set. This method does not guess.
      */
     public init(_ inString: String) {
+        /* ################################################################## */
+        /**
+         This returns an Array of indexes that map all the occurrences of a given substring.
+         
+         - parameter in: The string to be searched.
+         - parameter of: The substring we're looking for.
+         - parameter options: The String options for the search.
+         
+         - returns: an Array, containing the indexes of each occurrence. Empty Array, if does not occur.
+         */
+        func indexes(in inContextString: String, of inString: String, options inOptions: String.CompareOptions = []) -> [String.Index] {
+            var result: [String.Index] = []
+            var start = inContextString.startIndex
+            
+            while start < inContextString.endIndex, let range = inContextString[start..<inContextString.endIndex].range(of: inString, options: inOptions) {
+                result.append(range.lowerBound)
+                start = range.lowerBound < range.upperBound ? range.upperBound: inContextString.index(range.lowerBound, offsetBy: 1, limitedBy: inContextString.endIndex) ?? inContextString.endIndex
+            }
+            
+            return result
+        }
+
         addressArray = []
         port = 0
         
         if !inString.isEmpty {
-            let parseTarget = inString.uppercased() // We use uppercased to ensure consistency.
-            let shortcutCount = parseTarget.indexes(of: "::").count // How many shortcuts we have (should be no more than 1)
+            let parseTarget = inString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased() // We use uppercased to ensure consistency. We also trim whitespace, because we're nice like that.
+            let shortcutCount = indexes(in: parseTarget, of: "::").count // How many shortcuts we have (should be no more than 1)
             
             // The rules: Has to be valid hexadecimal numbers, possibly bracketed, and no more than one "shortcut."
             if nil == parseTarget.rangeOfCharacter(from: CharacterSet(charactersIn: "0123456789ABCDEF:[]").inverted), 2 > shortcutCount {
@@ -493,7 +504,7 @@ public struct RVS_IPAddressV6: RVS_IPAddress {
                     let addressString = String(parseTarget[addressStartIndex..<addressEndIndex])
                     
                     // Assuming that we were able to pluck an address string out of the above mess, we look for a shortcut.
-                    let shortcutIndexRef = addressString.indexes(of: "::")
+                    let shortcutIndexRef = indexes(in: addressString, of: "::")
                     // If we have any shortcuts, we get the first (which is the only) one.
                     let shortcutIndex: String.Index = !shortcutIndexRef.isEmpty ? shortcutIndexRef[0] : addressString.endIndex
                     
@@ -559,26 +570,5 @@ public extension String {
      */
     var ipAddress: RVS_IPAddress? {
         return RVS_IPAddressExtractIPAddress(self)
-    }
-    
-    /* ################################################################## */
-    /**
-     This returns an Array of indexes that map all the occurrences of a given substring.
-     
-     - parameter of: The substring we're looking for.
-     - parameter options: The String options for the search.
-     
-     - returns: an Array, containing the indexes of each occurrence. Empty Array, if does not occur.
-     */
-    func indexes(of inString: String, options inOptions: String.CompareOptions = []) -> [Index] {
-        var result: [Index] = []
-        var start = startIndex
-        
-        while start < endIndex, let range = self[start..<endIndex].range(of: inString, options: inOptions) {
-            result.append(range.lowerBound)
-            start = range.lowerBound < range.upperBound ? range.upperBound: index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
-        }
-        
-        return result
     }
 }

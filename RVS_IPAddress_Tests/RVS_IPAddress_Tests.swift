@@ -50,7 +50,8 @@ class RVS_IPAddress_Tests: XCTestCase {
         (in: "0.0.0.0:23", out: "0.0.0.0:23", padded: false),
         (in: ":23", out: nil, padded: false),
         (in: "42:", out: nil, padded: false),
-        (in: "Leviticus 15:33", out: nil, padded: false)
+        (in: "Leviticus 15:33", out: nil, padded: false),
+        (in: "  \t 0.0.0.0:23\n ", out: "0.0.0.0:23", padded: false)
     ]
     
     static let stringTestSetV6: [(in: String?, out: String?, padded: Bool)] = [
@@ -102,7 +103,7 @@ class RVS_IPAddress_Tests: XCTestCase {
         (in: "[FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF]:65535", out: "[ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff]:65535", padded: false),
         (in: "[FFFF:ffff:FFFF:ffff:FFFF:ffff:FFFF:ffff]:65535", out: "[ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff]:65535", padded: false),
         (in: "[FFFF:0:0000:ffff]:65535", out: nil, padded: false),
-        (in: "[FFFF:0::0000:ffff]:65535", out: "[ffff::ffff]:65535", padded: false)
+        (in: "  \t [FFFF:0::0000:ffff]:65535 \t\n\t", out: "[ffff::ffff]:65535", padded: false)
     ]
     
     static let arrayTestIPv4: [(inputArray: [Int]?, port: Int?, out: String?, padded: Bool)] = [
@@ -152,14 +153,14 @@ class RVS_IPAddress_Tests: XCTestCase {
         inTestSet.forEach {
             print("Comparing \(String(describing: $0))")
             if let inputArray = $0.inputArray, let outputString = $0.out, let port = $0.port {
-                if let testIP = RVS_IPAddressExtractIPAddress(inputArray, port: port, isPadded: $0.padded) {
+                if let testIP = RVS_IPAddressExtractIPAddress(array: inputArray, port: port, isPadded: $0.padded) {
                     XCTAssertTrue(testIP.isValidAddress, "Returns invalid valid!")
                     XCTAssertEqual(testIP.addressAndPort, outputString, "Unexpected Output")
                 } else {
                     XCTFail("Unexpected Nil!")
                 }
             } else if nil == $0.out, let inputArray = $0.inputArray, let port = $0.port {
-                let testString = RVS_IPAddressExtractIPAddress(inputArray, port: port, isPadded: $0.padded)
+                let testString = RVS_IPAddressExtractIPAddress(array: inputArray, port: port, isPadded: $0.padded)
                 XCTAssertNil(testString, "This should be nil")
             } else {
                 XCTFail("BAD TEST SET!")
