@@ -26,7 +26,9 @@ This requires Swift Version 4.0 or above (tested with 4.2).
 
 WHERE TO GET
 =
-[Here is the GitHub Repo for This Project](https://github.com/RiftValleySoftware/RVS_IPAddress/)
+[Here is the GitHub Repo for This Project.](https://github.com/RiftValleySoftware/RVS_IPAddress/)
+
+[Here is the online documentation page for this project.](https://riftvalleysoftware.com/work/open-source-projects/#RVS_IPAddress)
 
 USAGE
 =
