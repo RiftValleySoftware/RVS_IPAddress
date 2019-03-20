@@ -170,7 +170,7 @@ public func RVS_IPAddressExtractIPAddress(array inArray: [Int], port inPort: Int
 
 /* ################################################################################################################################## */
 /**
- This is a specialization for IPV6
+ This is a specialization for IPV4
  */
 public struct RVS_IPAddressV4: RVS_IPAddress {
     /* ################################################################## */
