@@ -62,6 +62,11 @@ You can also add TCP ports to the address:
 
 The resulting addresses can be accessed as Arrays of Int, or as String, either with or without the TCP port.
 
+DEPENDENCIES
+=
+
+There are no dependencies to use RVS_IPAddress in your project. In order to test it and run it in the module project, you should use [CocoaPods](https://cocoapods.org) to install [SwiftLint](https://cocoapods.org/pods/SwiftLint), although that is not required. It's [just good practice](https://littlegreenviper.com/series/swiftwater/swiftlint/).
+
 LICENSE
 =
 MIT License
