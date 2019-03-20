@@ -15,4 +15,26 @@ It validates the correctness of the address before storing it, so you know that 
 
 It does not verify that the address actually leads anywhere. It merely ensures that it is a correctly-formed IP address.
 
-You can subit any string, and the factory method will ensure that an instance of the correct IP version handler is generated.
+You can submit any string, and the factory method will ensure that an instance of the correct IP version handler is generated.
+
+Example
+-
+    if let testIP = RVS_IPAddressExtractIPAddress("1.2.3.4") {
+        print("This should be an IPv4 Address: \(String(describing: testIP))")
+    }
+
+    if let testIP = RVS_IPAddressExtractIPAddress("1:2:3:4:5:6:7:8") {
+        print("This should be an IPv6 Address: \(String(describing: testIP))")
+    }
+
+You can also add TCP ports to the address:
+
+    if let testIP = RVS_IPAddressExtractIPAddress("1.2.3.4:5") {
+        print("This should be an IPv4 Address: \(String(describing: testIP))")
+    }
+
+    if let testIP = RVS_IPAddressExtractIPAddress("[1:2:3:4:5:6:7:8]:9") {
+        print("This should be an IPv6 Address: \(String(describing: testIP))")
+    }
+
+The resulting addresses can be accessed as Arrays of Int, or as String, either with or without the TCP port.
