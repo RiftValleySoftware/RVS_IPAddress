@@ -7,29 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D373407393089516A11518C /* Pods_RVS_IPAddress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783E02023E2DD733273616BB /* Pods_RVS_IPAddress.framework */; };
-		D44D99D922412D390071B02E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
+		D41E42692242CF2300D976D8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
+		D41E426A2242CF4600D976D8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
 		D44D99E622412D610071B02E /* RVS_IPAddress_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99E522412D610071B02E /* RVS_IPAddress_Tests.swift */; };
 		D44D99EC22412DBF0071B02E /* RVS_IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */; };
 		D44D99ED22412DBF0071B02E /* RVS_IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		D44D99D322412D390071B02E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		089C58578E946C7DB5F89CF4 /* Pods-RVS_IPAddress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RVS_IPAddress.release.xcconfig"; path = "Target Support Files/Pods-RVS_IPAddress/Pods-RVS_IPAddress.release.xcconfig"; sourceTree = "<group>"; };
-		783E02023E2DD733273616BB /* Pods_RVS_IPAddress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RVS_IPAddress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC7D38FF39885318ADDAEB59 /* Pods-RVS_IPAddress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RVS_IPAddress.debug.xcconfig"; path = "Target Support Files/Pods-RVS_IPAddress/Pods-RVS_IPAddress.debug.xcconfig"; sourceTree = "<group>"; };
 		D44D99D522412D390071B02E /* RVS_IPAddress */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RVS_IPAddress; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44D99D822412D390071B02E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D44D99E322412D610071B02E /* RVS_IPAddress_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RVS_IPAddress_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,50 +23,13 @@
 		D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_IPAddress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		D44D99D222412D390071B02E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1D373407393089516A11518C /* Pods_RVS_IPAddress.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D44D99E022412D610071B02E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
-		8A7492D61228536E49170F5D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BC7D38FF39885318ADDAEB59 /* Pods-RVS_IPAddress.debug.xcconfig */,
-				089C58578E946C7DB5F89CF4 /* Pods-RVS_IPAddress.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		93889A0090D72C5D946DA44E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				783E02023E2DD733273616BB /* Pods_RVS_IPAddress.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D44D99CC22412D390071B02E = {
 			isa = PBXGroup;
 			children = (
 				D44D99D722412D390071B02E /* RVS_IPAddress */,
 				D44D99E422412D610071B02E /* RVS_IPAddress_Tests */,
 				D44D99D622412D390071B02E /* Products */,
-				8A7492D61228536E49170F5D /* Pods */,
-				93889A0090D72C5D946DA44E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,11 +67,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D44D99DC22412D390071B02E /* Build configuration list for PBXNativeTarget "RVS_IPAddress" */;
 			buildPhases = (
-				6F46FA603C81495375E81215 /* [CP] Check Pods Manifest.lock */,
 				D44E010322426FAD0026DFE4 /* SwiftLINT */,
 				D44D99D122412D390071B02E /* Sources */,
-				D44D99D222412D390071B02E /* Frameworks */,
-				D44D99D322412D390071B02E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -139,8 +84,6 @@
 			buildConfigurationList = D44D99E822412D610071B02E /* Build configuration list for PBXNativeTarget "RVS_IPAddress_Tests" */;
 			buildPhases = (
 				D44D99DF22412D610071B02E /* Sources */,
-				D44D99E022412D610071B02E /* Frameworks */,
-				D44D99E122412D610071B02E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -187,39 +130,7 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		D44D99E122412D610071B02E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXShellScriptBuildPhase section */
-		6F46FA603C81495375E81215 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RVS_IPAddress-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D44E010322426FAD0026DFE4 /* SwiftLINT */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,7 +147,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"\n";
+			shellScript = "if test -f \"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"; then\n    \"${PROJECT_DIR}/Pods/SwiftLint/swiftlint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -245,7 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D44D99D922412D390071B02E /* main.swift in Sources */,
+				D41E426A2242CF4600D976D8 /* main.swift in Sources */,
 				D44D99EC22412DBF0071B02E /* RVS_IPAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +167,7 @@
 			files = (
 				D44D99E622412D610071B02E /* RVS_IPAddress_Tests.swift in Sources */,
 				D44D99ED22412DBF0071B02E /* RVS_IPAddress.swift in Sources */,
+				D41E42692242CF2300D976D8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +291,6 @@
 		};
 		D44D99DD22412D390071B02E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC7D38FF39885318ADDAEB59 /* Pods-RVS_IPAddress.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KSAUGZFWP2;
@@ -393,7 +304,6 @@
 		};
 		D44D99DE22412D390071B02E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 089C58578E946C7DB5F89CF4 /* Pods-RVS_IPAddress.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KSAUGZFWP2;

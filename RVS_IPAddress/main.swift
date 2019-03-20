@@ -23,4 +23,4 @@
 
 import Foundation
 
-print("Run the tests, dude.")
+print("What are you looking here, for? Run the tests, dude.")

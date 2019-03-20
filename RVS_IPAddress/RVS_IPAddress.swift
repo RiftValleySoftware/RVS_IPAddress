@@ -28,6 +28,8 @@ import Foundation
  This protocol is an abstract base for IP addresses. When we parse a String as an IP address, it will return a specific implementation of this.
 
  When we say "valid," we don't mean the address resolves to anything; just that it is syntactically correct.
+ 
+ This file is the only one that you need for your implementation. Simply copy it wherever you want in your project, and add it to your chosen target.
  */
 public protocol RVS_IPAddress {
     /* ################################################################## */
