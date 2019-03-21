@@ -336,7 +336,7 @@ public struct RVS_IPAddressV6: RVS_IPAddress {
                     } else if 0 == en.element, nil == currentRange {    // If this is our first zero, then we start a new Range. It's currently empty, but exists.
                         currentRange = en.offset..<en.offset
                     } else if nil != currentRange { // If this is not a zero, but we have an existing current Range, we add the Range to our map, and reset it for the next set of zeroes.
-                        if 0 <= currentRange.upperBound - currentRange.lowerBound {
+                        if 0 < currentRange.upperBound - currentRange.lowerBound {
                             currentRange = currentRange.lowerBound..<currentRange.upperBound + 1
                             scrubMap.append(currentRange)
                         }
@@ -345,7 +345,7 @@ public struct RVS_IPAddressV6: RVS_IPAddress {
                 }
                 
                 // If the last digit is 0, and the shortcut runs to the end, then we need to go up one more, and append it, because it never got caught in the looper.
-                if nil != currentRange, addressArray.count - 1 == currentRange.upperBound, 0 == addressArray[addressArray.count - 1] {
+                if nil != currentRange, 0 < currentRange.upperBound - currentRange.lowerBound, addressArray.count - 1 == currentRange.upperBound, 0 == addressArray[addressArray.count - 1] {
                     currentRange = currentRange.lowerBound..<addressArray.count
                     scrubMap.append(currentRange)
                 }
