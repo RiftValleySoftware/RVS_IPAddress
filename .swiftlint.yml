@@ -13,7 +13,6 @@ opt_in_rules:
 excluded:
 - Pods
 - RVS_IPAddress_Tests
-- Test-Playground.playground
 - docs
 
 file_length:
