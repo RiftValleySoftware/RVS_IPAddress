@@ -20,9 +20,9 @@ This class reads these, and will also give you properly formatted (and shortened
 Requirements
 -
 
-It should work fine for osx, tvOS and iOS. It only depends on the Swift Foundation library.
+It should work fine for macOS, tvOS and iOS. It only depends on the Swift Foundation library.
 
-This requires Swift Version 4.0 or above (tested with 4.2).
+This requires Swift Version 4.0 or above (tested up to 5).
 
 WHERE TO GET
 =
@@ -40,7 +40,7 @@ This is a simple source file; not a module.
 
 To use this, simply add the [RVS_IPAddress/RVS_IPAddress.swift](https://github.com/RiftValleySoftware/RVS_IPAddress/blob/master/RVS_IPAddress/RVS_IPAddress.swift) file to your project; copying it wherever you want.
 
-All the rest of the stuff is for testing, validating and sharing.
+All the rest of the stuff in the project is for testing, validating and sharing.
 
 Start With A String
 -

@@ -21,7 +21,7 @@
  The Great Rift Valley Software Company: https://riftvalleysoftware.com
  */
 
-import Foundation
+import Foundation   // Foundation is required for CharacterSet. If we didn't have that, then, we could do without this.
 
 /* ################################################################################################################################## */
 /**
