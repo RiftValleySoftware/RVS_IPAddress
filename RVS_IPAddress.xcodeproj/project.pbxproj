@@ -27,7 +27,7 @@
 		D44D99CC22412D390071B02E = {
 			isa = PBXGroup;
 			children = (
-				D44D99D722412D390071B02E /* RVS_IPAddress */,
+				D44D99D722412D390071B02E /* src */,
 				D44D99E422412D610071B02E /* RVS_IPAddress_Tests */,
 				D44D99D622412D390071B02E /* Products */,
 			);
@@ -42,13 +42,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D44D99D722412D390071B02E /* RVS_IPAddress */ = {
+		D44D99D722412D390071B02E /* src */ = {
 			isa = PBXGroup;
 			children = (
 				D44D99D822412D390071B02E /* main.swift */,
 				D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */,
 			);
-			path = RVS_IPAddress;
+			path = src;
 			sourceTree = "<group>";
 		};
 		D44D99E422412D610071B02E /* RVS_IPAddress_Tests */ = {
