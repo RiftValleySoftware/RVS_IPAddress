@@ -17,6 +17,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
+ Version: 1.1.0
  
  The Great Rift Valley Software Company: https://riftvalleysoftware.com
  */
@@ -92,31 +93,31 @@ extension RVS_IPAddress {
     /**
      - returns: true, if the IP address is invalid (all 0's).
      */
-    public var isEmpty: Bool { return addressArray.isEmpty }
+    public var isEmpty: Bool { addressArray.isEmpty }
     
     /* ################################################################## */
     /**
      - returns: true, if this is a valid IPV6 address.
      */
-    public var isV6: Bool { return false }
+    public var isV6: Bool { false }
     
     /* ################################################################## */
     /**
      - returns: true, if this is a valid IPV6 or IPV4 address.
      */
-    public var isValidAddress: Bool { return false }
+    public var isValidAddress: Bool { false }
     
     /* ################################################################## */
     /**
      - returns: just the address portion of an address/port pair, as a syntactically correct String.
      */
-    public var address: String { return "" }
+    public var address: String { "" }
     
     /* ################################################################## */
     /**
      - returns: The address and port, as a String.
      */
-    public var description: String { return addressAndPort }
+    public var description: String { addressAndPort }
 }
 
 /* ################################################################## */
@@ -155,17 +156,11 @@ public func RVS_IPAddressExtractIPAddress(_ inString: String, isPadded inIsPadde
 public func RVS_IPAddressExtractIPAddress(array inArray: [Int], port inPort: Int = 0, isPadded inIsPadded: Bool = false) -> RVS_IPAddress! {
     let iPv4 = RVS_IPAddressV4(inArray, port: inPort)
     
-    if iPv4.isValidAddress {
-        return iPv4
-    } else {
-        var iPv6 = RVS_IPAddressV6(inArray, port: inPort)
-        iPv6.isPadded = inIsPadded
-        if iPv6.isValidAddress {
-            return iPv6
-        }
-    }
-    
-    return nil
+    guard !iPv4.isValidAddress else { return iPv4 }
+
+    var iPv6 = RVS_IPAddressV6(inArray, port: inPort)
+    iPv6.isPadded = inIsPadded
+    return iPv6.isValidAddress ? iPv6 : nil
 }
 
 /* ################################################################################################################################## */
@@ -175,7 +170,7 @@ public func RVS_IPAddressExtractIPAddress(array inArray: [Int], port inPort: Int
 public struct RVS_IPAddressV4: RVS_IPAddress {
     /* ################################################################## */
     /**
-     - returns: the TCP Port of the IP address.
+     The TCP Port of the IP address.
      */
     public var port: Int = 0
     
@@ -185,9 +180,7 @@ public struct RVS_IPAddressV4: RVS_IPAddress {
      */
     public var addressArray: [Int]  = [] {
         didSet {    // This validates the array. It clears it if the array is invalid.
-            if 4 != addressArray.count || addressArray.reduce(false, { (prev, element) -> Bool in
-                return prev || (0 > element) || (255 < element)
-            }) {
+            if 4 != addressArray.count || addressArray.contains(where: { (element) -> Bool in (0 > element) || (255 < element) }) {
                 addressArray = []
             }
         }
@@ -197,31 +190,19 @@ public struct RVS_IPAddressV4: RVS_IPAddress {
     /**
      - returns: The IPV4 String representation.
      */
-    public var address: String {
-        var ret = "0.0.0.0"
-        
-        if !addressArray.isEmpty {
-            ret = addressArray.compactMap { String(format: "%d", $0) }.joined(separator: ".")
-        }
-        
-        return ret
-    }
+    public var address: String { !addressArray.isEmpty ? addressArray.compactMap { String(format: "%d", $0) }.joined(separator: ".") : "0.0.0.0" }
     
     /* ################################################################## */
     /**
      - returns: The String, representing both the address and the port. Just the address, if no port. 0 is a valid TCP port, but we don't count that. 0 is "no port."
      */
-    public var addressAndPort: String {
-        return address + ((0 < port) ? ":" + String(port) : "")
-    }
+    public var addressAndPort: String { address + ((0 < port) ? ":" + String(port) : "") }
     
     /* ################################################################## */
     /**
      - returns: true, if this is a valid IPV4 address.
      */
-    public var isValidAddress: Bool {
-        return 4 == addressArray.count
-    }
+    public var isValidAddress: Bool { 4 == addressArray.count }
     
     /* ################################################################## */
     /**
@@ -275,9 +256,7 @@ public struct RVS_IPAddressV4: RVS_IPAddress {
     init(_ inArray: [Int] = [], port inPort: Int = 0) {
         var adArr: [Int] = inArray
         var prt: Int = inPort
-        if 4 != inArray.count || inArray.reduce(false, { (current, next) -> Bool in
-            return current || !(0..<256).contains(next)
-        }) {
+        if 4 != inArray.count || inArray.contains(where: { (next) -> Bool in !(0..<256).contains(next) }) {
             adArr = []
             prt = 0
         }
@@ -313,9 +292,7 @@ public struct RVS_IPAddressV6: RVS_IPAddress {
     /**
      - returns: true, if this is a valid IPV6 address.
      */
-    public var isValidAddress: Bool {
-        return 8 == addressArray.count
-    }
+    public var isValidAddress: Bool { 8 == addressArray.count }
     
     /* ################################################################## */
     /**
@@ -388,23 +365,17 @@ public struct RVS_IPAddressV6: RVS_IPAddress {
     /* ################################################################## */
     /**
      */
-    public var addressAndPort: String {
-        if 0 < port {
-            return "[" + self.address + "]:" + String(port)
-        } else {
-            return address
-        }
-    }
+    public var addressAndPort: String { 0 < port ? "[" + self.address + "]:" + String(port) : address }
     
     /* ################################################################## */
     /**
-     - returns: The IP address element Array, vetted and cleaned for V6
+     This is the array, containing the address.
+     
+     It clears the Address Array, if it is not "legal."
      */
     public var addressArray: [Int] {
         didSet {
-            if 8 != addressArray.count || addressArray.reduce(false, { (prev, element) -> Bool in
-                return prev || (0 > element) || (65535 < element)
-            }) {
+            if 8 != addressArray.count || addressArray.contains(where: { (element) -> Bool in (0 > element) || (65535 < element) }) {
                 addressArray = []
             }
         }
@@ -552,9 +523,7 @@ public struct RVS_IPAddressV6: RVS_IPAddress {
     public init(_ inArray: [Int] = [], port inPort: Int = 0, isPadded inIsPadded: Bool = false) {
         var adArr: [Int] = inArray
         var prt: Int = inPort
-        if 8 != inArray.count || inArray.reduce(false, { (current, next) -> Bool in
-            return current || !(0..<65536).contains(next)
-        }) {
+        if 8 != inArray.count || inArray.contains(where: { (next) -> Bool in !(0..<65536).contains(next) }) {
             adArr = []
             prt = 0
         }
@@ -572,7 +541,5 @@ public extension String {
     /**
      - returns: the String, parsed as an IP address. It will be either an instance of RVS_IPAddressV4 or RVS_IPAddressV6. It will be nil, if the IP Address is invalid (no instance).
      */
-    var ipAddress: RVS_IPAddress? {
-        return RVS_IPAddressExtractIPAddress(self)
-    }
+    var ipAddress: RVS_IPAddress? { RVS_IPAddressExtractIPAddress(self) }
 }
