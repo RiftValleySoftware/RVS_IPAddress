@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D44D99D422412D390071B02E"
+               BlueprintIdentifier = "D4C229C524943C9300C7B207"
                BuildableName = "RVS_IPAddress"
                BlueprintName = "RVS_IPAddress"
                ReferencedContainer = "container:RVS_IPAddress.xcodeproj">
@@ -22,13 +22,13 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D44D99E222412D610071B02E"
+               BlueprintIdentifier = "D4C229D624943D0200C7B207"
                BuildableName = "RVS_IPAddress_Tests.xctest"
                BlueprintName = "RVS_IPAddress_Tests"
                ReferencedContainer = "container:RVS_IPAddress.xcodeproj">
@@ -44,13 +44,23 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D44D99D422412D390071B02E"
+            BlueprintIdentifier = "D4C229C524943C9300C7B207"
             BuildableName = "RVS_IPAddress"
             BlueprintName = "RVS_IPAddress"
             ReferencedContainer = "container:RVS_IPAddress.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D4C229D624943D0200C7B207"
+               BuildableName = "RVS_IPAddress_Tests.xctest"
+               BlueprintName = "RVS_IPAddress_Tests"
+               ReferencedContainer = "container:RVS_IPAddress.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -67,7 +77,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D44D99D422412D390071B02E"
+            BlueprintIdentifier = "D4C229C524943C9300C7B207"
             BuildableName = "RVS_IPAddress"
             BlueprintName = "RVS_IPAddress"
             ReferencedContainer = "container:RVS_IPAddress.xcodeproj">
@@ -83,7 +93,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D44D99D422412D390071B02E"
+            BlueprintIdentifier = "D4C229C524943C9300C7B207"
             BuildableName = "RVS_IPAddress"
             BlueprintName = "RVS_IPAddress"
             ReferencedContainer = "container:RVS_IPAddress.xcodeproj">

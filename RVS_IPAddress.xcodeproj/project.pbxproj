@@ -107,6 +107,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4C229CA24943C9300C7B207 /* Build configuration list for PBXNativeTarget "RVS_IPAddress" */;
 			buildPhases = (
+				D4907AC524956340007FAE32 /* SwiftLint */,
 				D4C229C224943C9300C7B207 /* Sources */,
 				D4C229C324943C9300C7B207 /* Frameworks */,
 				D4C229C424943C9300C7B207 /* CopyFiles */,
@@ -184,6 +185,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D4907AC524956340007FAE32 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -f \"${PROJECT_DIR}/Project-Meta/SwiftLint/swiftlint\"; then\n    \"${PROJECT_DIR}/Project-Meta/SwiftLint/swiftlint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D4C229C224943C9300C7B207 /* Sources */ = {

@@ -11,8 +11,7 @@ opt_in_rules:
 - comma
 
 excluded:
-- Pods
-- RVS_IPAddress_Tests
+- test
 - docs
 
 file_length:
