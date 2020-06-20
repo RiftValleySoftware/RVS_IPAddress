@@ -1,5 +1,11 @@
 # RVS_IPAddress Change Log
 
+## 1.1.1
+
+- **June 20, 2020**
+
+- Added SPM support
+
 ## 1.1.0
 
 - **June 13, 2020**

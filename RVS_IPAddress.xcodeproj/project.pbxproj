@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D4C229CD24943CA500C7B207 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
+		D40214C8249E41E400565A6D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
 		D4C229CE24943CA500C7B207 /* RVS_IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */; };
 		D4C229DF24943D0900C7B207 /* RVS_IPAddress_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C229D124943CD700C7B207 /* RVS_IPAddress_Tests.swift */; };
 		D4C229E024943D0900C7B207 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C229D224943CD700C7B207 /* Info.plist */; };
@@ -77,7 +77,6 @@
 		D44D99D722412D390071B02E /* src */ = {
 			isa = PBXGroup;
 			children = (
-				D44D99D822412D390071B02E /* main.swift */,
 				D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */,
 			);
 			path = src;
@@ -94,6 +93,7 @@
 		D4C229D024943CD700C7B207 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				D44D99D822412D390071B02E /* main.swift */,
 				D4C229D124943CD700C7B207 /* RVS_IPAddress_Tests.swift */,
 				D4C229D224943CD700C7B207 /* Info.plist */,
 			);
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C229CD24943CA500C7B207 /* main.swift in Sources */,
+				D40214C8249E41E400565A6D /* main.swift in Sources */,
 				D4C229CE24943CA500C7B207 /* RVS_IPAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
