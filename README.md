@@ -32,8 +32,36 @@ WHERE TO GET
 
 USAGE
 =
+As A [Swift Package](https://swift.org/package-manager/)
+-
 
-Include the Source in Your Project
+You can include the Library, using the Swift Package Manager, simply by referring to [its GitHub Repository](https://github.com/RiftValleySoftware/RVS_IPAddress) URI (SSH: [git@github.com:RiftValleySoftware/RVS_IPAddress.git](git@github.com:RiftValleySoftware/RVS_IPAddress.git) or HTTPS: [https://github.com/RiftValleySoftware/RVS_IPAddress.git](https://github.com/RiftValleySoftware/RVS_IPAddress.git)).
+
+You will then need to import the module, by adding the following to the source files that will be accessing the spinner:
+
+    import RVS_IPAddress
+    
+Using [Carthage](https://github.com/Carthage/Carthage)
+-
+You can install it, using Carthage as your dependency manager.
+
+Simply add the following to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
+
+    github "RiftValleySoftware/RVS_IPAddress"
+
+That will bring the project into a "Carthage" directory.
+
+You should probably add the single file from the project (as opposed to the product). That can be found in "Checkins".
+
+If you do that, then no need to import.
+
+If you include the product (in the "Build" subdirectory), you will need to import the module, by adding the following to the source files that will be accessing the spinner:
+
+    import RVS_IPAddress
+    
+Note that Carthage may not sign the module, and you may have issues submitting it.
+
+Directly From GitHub
 -
 
 This is a simple source file; not a module.
