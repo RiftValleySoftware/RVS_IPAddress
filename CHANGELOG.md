@@ -1,5 +1,11 @@
 # RVS_IPAddress Change Log
 
+## 1.2.0
+
+- **July 5, 2020**
+
+- Switched SPM deliverable to static
+
 ## 1.1.1
 
 - **June 20, 2020**

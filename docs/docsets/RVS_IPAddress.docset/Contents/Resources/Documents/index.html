@@ -117,7 +117,33 @@
 
 <p><a href="https://riftvalleysoftware.com/work/open-source-projects/#RVS_IPAddress">Here is the online documentation page for this project.</a></p>
 <h1 id='usage' class='heading'>USAGE</h1>
-<h2 id='include-the-source-in-your-project' class='heading'>Include the Source in Your Project</h2>
+<h2 id='as-a-a-href-https-swift-org-package-manager-swift-package-a' class='heading'>As A <a href="https://swift.org/package-manager/">Swift Package</a></h2>
+
+<p>You can include the Library, using the Swift Package Manager, simply by referring to <a href="https://github.com/RiftValleySoftware/RVS_IPAddress">its GitHub Repository</a> URI (SSH: <a href="git@github.com:RiftValleySoftware/RVS_IPAddress.git">git@github.com:RiftValleySoftware/RVS_IPAddress.git</a> or HTTPS: <a href="https://github.com/RiftValleySoftware/RVS_IPAddress.git">https://github.com/RiftValleySoftware/RVS_IPAddress.git</a>).</p>
+
+<p>You will then need to import the module, by adding the following to the source files that will be accessing the spinner:</p>
+<pre class="highlight plaintext"><code>import RVS_IPAddress
+</code></pre>
+<h2 id='using-a-href-https-github-com-carthage-carthage-carthage-a' class='heading'>Using <a href="https://github.com/Carthage/Carthage">Carthage</a></h2>
+
+<p>You can install it, using Carthage as your dependency manager.</p>
+
+<p>Simply add the following to your <a href="https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile">Cartfile</a>:</p>
+<pre class="highlight plaintext"><code>github "RiftValleySoftware/RVS_IPAddress"
+</code></pre>
+
+<p>That will bring the project into a &ldquo;Carthage&rdquo; directory.</p>
+
+<p>You should probably add the single file from the project (as opposed to the product). That can be found in &ldquo;Checkins&rdquo;.</p>
+
+<p>If you do that, then no need to import.</p>
+
+<p>If you include the product (in the &ldquo;Build&rdquo; subdirectory), you will need to import the module, by adding the following to the source files that will be accessing the spinner:</p>
+<pre class="highlight plaintext"><code>import RVS_IPAddress
+</code></pre>
+
+<p>Note that Carthage may not sign the module, and you may have issues submitting it.</p>
+<h2 id='directly-from-github' class='heading'>Directly From GitHub</h2>
 
 <p>This is a simple source file; not a module.</p>
 

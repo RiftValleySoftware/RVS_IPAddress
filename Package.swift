@@ -13,7 +13,6 @@ let package = Package(
     products: [
         .library(
             name: "RVS-IPAddress",
-            type: .dynamic,
             targets: ["RVS_IPAddress"])
     ],
     targets: [
