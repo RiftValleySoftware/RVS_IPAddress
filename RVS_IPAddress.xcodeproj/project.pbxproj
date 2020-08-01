@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		D40214C8249E41E400565A6D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
 		D4C229CE24943CA500C7B207 /* RVS_IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */; };
-		D4C229DF24943D0900C7B207 /* RVS_IPAddress_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C229D124943CD700C7B207 /* RVS_IPAddress_Tests.swift */; };
-		D4C229E024943D0900C7B207 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4C229D224943CD700C7B207 /* Info.plist */; };
-		D4C229E124943D0E00C7B207 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
-		D4C229E224943D2E00C7B207 /* RVS_IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */; };
+		D4C8FEE624D4D3D9000A1375 /* RVS_IPAddress_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C229D124943CD700C7B207 /* RVS_IPAddress_Test.swift */; };
+		D4C8FEE924D4D7A4000A1375 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,20 +30,14 @@
 		D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RVS_IPAddress.swift; sourceTree = "<group>"; };
 		D4C229B3249435CA00C7B207 /* Warnings.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Warnings.xcconfig; path = "Project-Meta/Warnings.xcconfig"; sourceTree = "<group>"; };
 		D4C229C624943C9300C7B207 /* RVS_IPAddress */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RVS_IPAddress; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4C229D124943CD700C7B207 /* RVS_IPAddress_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVS_IPAddress_Tests.swift; sourceTree = "<group>"; };
+		D4C229D124943CD700C7B207 /* RVS_IPAddress_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVS_IPAddress_Test.swift; sourceTree = "<group>"; };
 		D4C229D224943CD700C7B207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4C229D724943D0200C7B207 /* RVS_IPAddress_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RVS_IPAddress_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C229D724943D0200C7B207 /* RVS_IPAddressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RVS_IPAddressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C8FEE824D4D651000A1375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Project-Meta/Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D4C229C324943C9300C7B207 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D4C229D424943D0200C7B207 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,9 +50,9 @@
 		D44D99CC22412D390071B02E = {
 			isa = PBXGroup;
 			children = (
+				D4C8FEE324D4D2C0000A1375 /* Sources */,
+				D4C8FEE424D4D2D5000A1375 /* Tests */,
 				D4C229B524943A8D00C7B207 /* Project-Meta */,
-				D44D99D722412D390071B02E /* src */,
-				D4C229D024943CD700C7B207 /* test */,
 				D44D99D622412D390071B02E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,35 +61,52 @@
 			isa = PBXGroup;
 			children = (
 				D4C229C624943C9300C7B207 /* RVS_IPAddress */,
-				D4C229D724943D0200C7B207 /* RVS_IPAddress_Tests.xctest */,
+				D4C229D724943D0200C7B207 /* RVS_IPAddressTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D44D99D722412D390071B02E /* src */ = {
+		D44D99D722412D390071B02E /* RVS_IPAddress */ = {
 			isa = PBXGroup;
 			children = (
 				D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */,
 			);
-			path = src;
+			path = RVS_IPAddress;
 			sourceTree = "<group>";
 		};
 		D4C229B524943A8D00C7B207 /* Project-Meta */ = {
 			isa = PBXGroup;
 			children = (
+				D4C8FEE824D4D651000A1375 /* Info.plist */,
 				D4C229B3249435CA00C7B207 /* Warnings.xcconfig */,
 			);
 			name = "Project-Meta";
 			sourceTree = "<group>";
 		};
-		D4C229D024943CD700C7B207 /* test */ = {
+		D4C229D024943CD700C7B207 /* RVS_IPAddressTest */ = {
+			isa = PBXGroup;
+			children = (
+				D4C229D124943CD700C7B207 /* RVS_IPAddress_Test.swift */,
+			);
+			path = RVS_IPAddressTest;
+			sourceTree = "<group>";
+		};
+		D4C8FEE324D4D2C0000A1375 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D44D99D722412D390071B02E /* RVS_IPAddress */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D4C8FEE424D4D2D5000A1375 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				D44D99D822412D390071B02E /* main.swift */,
-				D4C229D124943CD700C7B207 /* RVS_IPAddress_Tests.swift */,
 				D4C229D224943CD700C7B207 /* Info.plist */,
+				D4C229D024943CD700C7B207 /* RVS_IPAddressTest */,
 			);
-			path = test;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,21 +130,19 @@
 			productReference = D4C229C624943C9300C7B207 /* RVS_IPAddress */;
 			productType = "com.apple.product-type.tool";
 		};
-		D4C229D624943D0200C7B207 /* RVS_IPAddress_Tests */ = {
+		D4C229D624943D0200C7B207 /* RVS_IPAddressTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4C229DC24943D0200C7B207 /* Build configuration list for PBXNativeTarget "RVS_IPAddress_Tests" */;
+			buildConfigurationList = D4C229DC24943D0200C7B207 /* Build configuration list for PBXNativeTarget "RVS_IPAddressTests" */;
 			buildPhases = (
 				D4C229D324943D0200C7B207 /* Sources */,
-				D4C229D424943D0200C7B207 /* Frameworks */,
-				D4C229D524943D0200C7B207 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = RVS_IPAddress_Tests;
+			name = RVS_IPAddressTests;
 			productName = RVS_IPAddress_Tests;
-			productReference = D4C229D724943D0200C7B207 /* RVS_IPAddress_Tests.xctest */;
+			productReference = D4C229D724943D0200C7B207 /* RVS_IPAddressTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +152,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "The Great Rift Valley Software Company";
 				TargetAttributes = {
 					D4C229C524943C9300C7B207 = {
@@ -170,21 +177,10 @@
 			projectRoot = "";
 			targets = (
 				D4C229C524943C9300C7B207 /* RVS_IPAddress */,
-				D4C229D624943D0200C7B207 /* RVS_IPAddress_Tests */,
+				D4C229D624943D0200C7B207 /* RVS_IPAddressTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		D4C229D524943D0200C7B207 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4C229E024943D0900C7B207 /* Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		D4907AC524956340007FAE32 /* SwiftLint */ = {
@@ -221,9 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C229DF24943D0900C7B207 /* RVS_IPAddress_Tests.swift in Sources */,
-				D4C229E124943D0E00C7B207 /* main.swift in Sources */,
-				D4C229E224943D2E00C7B207 /* RVS_IPAddress.swift in Sources */,
+				D4C8FEE924D4D7A4000A1375 /* main.swift in Sources */,
+				D4C8FEE624D4D3D9000A1375 /* RVS_IPAddress_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,10 +345,13 @@
 		D4C229CB24943C9300C7B207 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KSAUGZFWP2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Project-Meta/Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -362,10 +360,13 @@
 		D4C229CC24943C9300C7B207 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KSAUGZFWP2;
 				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Project-Meta/Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -377,7 +378,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KSAUGZFWP2;
-				INFOPLIST_FILE = RVS_IPAddress_Tests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -396,7 +397,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KSAUGZFWP2;
-				INFOPLIST_FILE = RVS_IPAddress_Tests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -430,7 +431,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4C229DC24943D0200C7B207 /* Build configuration list for PBXNativeTarget "RVS_IPAddress_Tests" */ = {
+		D4C229DC24943D0200C7B207 /* Build configuration list for PBXNativeTarget "RVS_IPAddressTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4C229DD24943D0200C7B207 /* Debug */,

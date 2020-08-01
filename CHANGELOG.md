@@ -1,5 +1,11 @@
 # RVS_IPAddress Change Log
 
+## 1.2.1
+
+- **July 31, 2020**
+
+- Rearranged to allow GitHub Swift action.
+
 ## 1.2.0
 
 - **July 5, 2020**

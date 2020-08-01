@@ -16,8 +16,8 @@ let package = Package(
             targets: ["RVS_IPAddress"])
     ],
     targets: [
-        .target(
-            name: "RVS_IPAddress",
-            path: "./src")
+        .target(name: "RVS_IPAddress"),
+        .testTarget(name: "RVS_IPAddressTest",
+                    dependencies: ["RVS_IPAddress"])
     ]
 )

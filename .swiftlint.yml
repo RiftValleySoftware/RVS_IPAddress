@@ -11,7 +11,7 @@ opt_in_rules:
 - comma
 
 excluded:
-- test
+- Tests
 - docs
 
 file_length:
