@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D40214C8249E41E400565A6D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
+		D4BCE26D24D599C200A52172 /* RVS_IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */; };
 		D4C229CE24943CA500C7B207 /* RVS_IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */; };
 		D4C8FEE624D4D3D9000A1375 /* RVS_IPAddress_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C229D124943CD700C7B207 /* RVS_IPAddress_Test.swift */; };
-		D4C8FEE924D4D7A4000A1375 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44D99D822412D390071B02E /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -217,8 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C8FEE924D4D7A4000A1375 /* main.swift in Sources */,
 				D4C8FEE624D4D3D9000A1375 /* RVS_IPAddress_Test.swift in Sources */,
+				D4BCE26D24D599C200A52172 /* RVS_IPAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +378,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KSAUGZFWP2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"TESTING=1",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -387,6 +391,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riftvalleysoftware.RVS-IPAddress-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG TESTING";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -397,6 +402,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = KSAUGZFWP2;
+				GCC_PREPROCESSOR_DEFINITIONS = "TESTING=1";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -406,6 +412,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.riftvalleysoftware.RVS-IPAddress-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = TESTING;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

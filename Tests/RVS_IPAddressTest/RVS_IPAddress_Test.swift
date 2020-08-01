@@ -23,7 +23,9 @@
  */
 
 import XCTest
-@testable import RVS_IPAddress
+#if !TESTING
+    @testable import RVS_IPAddress
+#endif
 
 class RVS_IPAddress_Tests: XCTestCase {
     static let stringTestSetV4: [(in: String?, out: String?, padded: Bool)] = [
