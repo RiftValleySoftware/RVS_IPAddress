@@ -20,7 +20,7 @@ This class reads these, and will also give you properly formatted (and shortened
 Requirements
 -
 
-It should work fine for macOS, tvOS and iOS. It only depends on the Swift Foundation library.
+It should work fine for macOS, tvOS, WatchOS, and iOS. It only depends on the Swift Foundation library.
 
 This requires Swift Version 4.0 or above (tested up to 5).
 

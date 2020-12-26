@@ -1,5 +1,12 @@
 # RVS_IPAddress Change Log
 
+## 1.2.2
+
+- **December 26, 2020**
+
+- Updated project settings.
+- Removed placeholder test directory (decruft).
+
 ## 1.2.1
 
 - **July 31, 2020**
