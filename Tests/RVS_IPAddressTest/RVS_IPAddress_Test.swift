@@ -17,7 +17,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- Version: 1.2.1
+ Version: 1.2.3
 
  The Great Rift Valley Software Company: https://riftvalleysoftware.com
  */
@@ -180,10 +180,24 @@ class RVS_IPAddress_Tests: XCTestCase {
     func testIPV4() {
         runIPTestsFromStrings(type(of: self).stringTestSetV4)
         runIPTestsFromArrays(type(of: self).arrayTestIPv4)
+        XCTAssertEqual("0.1.2.3".ipAddress?.addressArray, [0,1,2,3])
+        if var testAddress = "0.1.2.3".ipAddress {
+            testAddress.addressArray = [257,257,257,257]
+            XCTAssertTrue(testAddress.addressArray.isEmpty)
+        } else {
+            XCTFail("Bad Address!")
+        }
     }
 
     func testIPV6() {
         runIPTestsFromStrings(type(of: self).stringTestSetV6)
         runIPTestsFromArrays(type(of: self).arrayTestIPv6)
+        XCTAssertEqual("[::]".ipAddress?.addressArray, [0,0,0,0,0,0,0,0])
+        if var testAddress = "0.1.2.3".ipAddress {
+            testAddress.addressArray = [0,0,0,-1,0,0,0,0]
+            XCTAssertTrue(testAddress.addressArray.isEmpty)
+        } else {
+            XCTFail("Bad Address!")
+        }
     }
 }

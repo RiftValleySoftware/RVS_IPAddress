@@ -1,5 +1,12 @@
 # RVS_IPAddress Change Log
 
+## 1.2.3
+
+- **July 13, 2021**
+
+- Updated to latest tools.
+- Added code coverage.
+
 ## 1.2.2
 
 - **December 26, 2020**
