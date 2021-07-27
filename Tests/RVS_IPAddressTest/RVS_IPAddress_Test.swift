@@ -144,6 +144,7 @@ class RVS_IPAddress_Tests: XCTestCase {
             print("Comparing \(String(describing: $0))")
             if let inputString = $0.in, let outputString = $0.out {
                 if let testIP = RVS_IPAddressExtractIPAddress(inputString, isPadded: $0.padded) {
+                    XCTAssertFalse(testIP.isEmpty, "Should not be empty!")
                     XCTAssertTrue(testIP.isValidAddress, "Returns invalid valid!")
                     XCTAssertEqual(testIP.addressAndPort, outputString, "Unexpected Output")
                 } else {
@@ -180,7 +181,11 @@ class RVS_IPAddress_Tests: XCTestCase {
     func testIPV4() {
         runIPTestsFromStrings(type(of: self).stringTestSetV4)
         runIPTestsFromArrays(type(of: self).arrayTestIPv4)
+        XCTAssertFalse("0.1.2.3".ipAddress?.isV6 ?? true, "Should not be V6!")
+        XCTAssertTrue("0.1.2.3".ipAddress?.isValidAddress ?? false, "Should be Valid!")
         XCTAssertEqual("0.1.2.3".ipAddress?.addressArray, [0,1,2,3])
+        XCTAssertNil("".ipAddress?.addressArray)
+        XCTAssertNil("256.1.2.3".ipAddress?.addressArray)
         if var testAddress = "0.1.2.3".ipAddress {
             testAddress.addressArray = [257,257,257,257]
             XCTAssertTrue(testAddress.addressArray.isEmpty)
@@ -193,6 +198,10 @@ class RVS_IPAddress_Tests: XCTestCase {
         runIPTestsFromStrings(type(of: self).stringTestSetV6)
         runIPTestsFromArrays(type(of: self).arrayTestIPv6)
         XCTAssertEqual("[::]".ipAddress?.addressArray, [0,0,0,0,0,0,0,0])
+        XCTAssertTrue("[::]".ipAddress?.isValidAddress ?? false, "Should be Valid!")
+        XCTAssertTrue("[::]".ipAddress?.isV6 ?? false, "Should be V6!")
+        XCTAssertNotNil("::".ipAddress?.addressArray)
+        XCTAssertNil("65536::".ipAddress?.addressArray)
         if var testAddress = "0.1.2.3".ipAddress {
             testAddress.addressArray = [0,0,0,-1,0,0,0,0]
             XCTAssertTrue(testAddress.addressArray.isEmpty)
