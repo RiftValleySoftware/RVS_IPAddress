@@ -34,6 +34,7 @@
 		D4C229D224943CD700C7B207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C229D724943D0200C7B207 /* RVS_IPAddressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RVS_IPAddressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C8FEE824D4D651000A1375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Project-Meta/Info.plist"; sourceTree = "<group>"; };
+		D4FCABD527A429DF002CE448 /* RVS_IPAddress.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = RVS_IPAddress.docc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				D44D99EB22412DBF0071B02E /* RVS_IPAddress.swift */,
+				D4FCABD527A429DF002CE448 /* RVS_IPAddress.docc */,
 			);
 			path = RVS_IPAddress;
 			sourceTree = "<group>";
@@ -353,7 +355,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Project-Meta/Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -368,7 +370,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Project-Meta/Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
